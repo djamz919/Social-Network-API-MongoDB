@@ -14,7 +14,7 @@ const userController = {
     },
 
     // get a single user by its _id and populated thought and friend data
-    getPizzaById({ params }, res) {
+    getUserById({ params }, res) {
         User.findOne({ _id: params.id })
             .populate({
                 path: 'thoughts',
