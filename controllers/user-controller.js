@@ -14,8 +14,8 @@ const userController = {
     },
 
     // get a single user by its _id and populated thought and friend data
-    getPizzaById({params}, res) {
-        User.findOne({ _id: params.id})
+    getPizzaById({ params }, res) {
+        User.findOne({ _id: params.id })
             .populate({
                 path: 'thoughts',
                 select: '-__v'
@@ -33,14 +33,14 @@ const userController = {
     },
 
     // post a new user
-    createUser({body}, res) {
+    createUser({ body }, res) {
         User.create(body)
             .then(dbUserData => res.json(dbUserData))
             .catch(err => res.json(err));
     },
 
     // update a user by its _id
-    updateUser({params, body}, res) {
+    updateUser({ params, body }, res) {
         User.findOneAndUpdate({ _id: params.id }, body, { new: true, runValidators: true })
             .then(dbUserData => {
                 if (!dbUserData) {
@@ -95,3 +95,5 @@ const userController = {
             .catch(err => res.json(err));
     }
 }
+
+module.exports = userController
