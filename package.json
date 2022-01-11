@@ -19,6 +19,6 @@
   "homepage": "https://github.com/djamz919/Social-Network-API-MongoDB#readme",
   "dependencies": {
     "express": "^4.17.2",
-    "mongoose": "^6.1.6"
+    "mongoose": "^6.0.13"
   }
 }

@@ -35,7 +35,7 @@ const thoughtController = {
             })
             .then(dbThoughtData => {
                 if (!dbThoughtData) {
-                    res.status(400).json({ message: 'No user found with this id!' });
+                    res.status(400).json({ message: 'No thought found with this id!' });
                     return;
                 }
                 res.json(dbThoughtData);
@@ -52,7 +52,7 @@ const thoughtController = {
         )
             .then(dbThoughtData => {
                 if (!dbThoughtData) {
-                    res.status(404).json({ message: 'No user found with this id!' });
+                    res.status(404).json({ message: 'No thought found with this id!' });
                     return;
                 }
                 res.json(dbThoughtData);
@@ -65,7 +65,7 @@ const thoughtController = {
         Thought.findOneAndDelete({ _id: params.id })
             .then(deletedThought => {
                 if(!deletedThought) {
-                    return res.status(404).json({ message: 'No user found with this id' });
+                    return res.status(404).json({ message: 'No thought found with this id' });
                 }
                 return User.findOneAndUpdate(
                     { _id: params.userId},
@@ -75,7 +75,7 @@ const thoughtController = {
             })
             .then(dbThoughtData => {
                 if (!dbThoughtData) {
-                    res.json(404).json({ message: 'No user found with this id!' });
+                    res.json(404).json({ message: 'No thought found with this id!' });
                     return;
                 }
                 res.json(dbThoughtData);
@@ -92,7 +92,7 @@ const thoughtController = {
         )
             .then(dbThoughtData => {
                 if (!dbThoughtData) {
-                    res.status(404).json({ message: 'No user found with this id!' });
+                    res.status(404).json({ message: 'No thought found with this id!' });
                     return;
                 }
                 res.json(dbThoughtData);
@@ -101,7 +101,7 @@ const thoughtController = {
     },
 
     // pull and remove a reaction by the reaction's reactionId value
-    deletReaction({ params }, res) {
+    deleteReaction({ params }, res) {
         Thought.findOneAndUpdate(
             { _id: params.thoughtId },
             { $pull: { reactions: { reactionId: params.reactionId } } },
