@@ -53,10 +53,16 @@ const userController = {
     },
 
     // remove user by its _id
-    // bonus to remove a user's associated thoughts when deleted
     deleteUser({ params }, res) {
         User.findOneAndDelete({ _id: params.id })
-            .then(dbUserData => res.json(dbUserData))
+            .then(dbUserData => {
+                console.log(dbUserData);
+                res.json(dbUserData);
+                Thought.deleteMany({ username: dbUserData.username })
+                .then(dbThoughtData => {
+                    console.log(dbThoughtData);
+                })
+            })
             .catch(err => res.json(err));
     },
 

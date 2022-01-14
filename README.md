@@ -17,6 +17,9 @@ Be sure to also have MongoDB installed on your machine.
 ## Usage
 After cloning the repository and installing any dependencies, run `npm start`. This should create a localhost to send API calls to. Using an API platform like Postman or Insomnia, these APIs can be accessed.
 
+To watch a sample walkthrough video:
+https://drive.google.com/file/d/1rrukDmDymMTkV9cJqbvYOvTbv-Bi_Ts9/view
+
 ## Documentation
 
 `POST` : Create User
